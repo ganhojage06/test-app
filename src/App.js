@@ -181,12 +181,13 @@ function App() {
           <Flex my={`1rem`} justifyContent={'space-between'} flexWrap={'wrap'} width={'80%'}>
             {itemsToPack.map((i, j) => {
               return <Flex
-                onClick={() => {
-                  setData({ ...data, editIndex: j + 1, selectedItem: i.name, selectedQuantity: i.quantity, needBag: i.bag })
-                  toggleAddToCartModal(true)
-                }}
                 className='cursor' mb={'1rem'} paddingX={'0.6rem'} paddingY={'0.3rem'} width={'48%'} bg={i.bag ? '#75F4FE' : '#DFDFDF'} borderRadius={20} alignItems={'center'} >
-                <Text fontSize={14} color={'#000000DE'}>{`${i.quantity} ${i.name}`}</Text>
+                <Text
+                  onClick={() => {
+                    setData({ ...data, editIndex: j + 1, selectedItem: i.name, selectedQuantity: i.quantity, needBag: i.bag })
+                    toggleAddToCartModal(true)
+                  }}
+                  fontSize={14} color={'#000000DE'}>{`${i.quantity} ${i.name}`}</Text>
                 <Text
                   onClick={() => {
                     let tempItemsToPack = itemsToPack
